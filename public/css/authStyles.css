@@ -20,7 +20,6 @@ list-type-ulli,
 
 /* poppins-300 - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   src: url("../fonts/poppins/poppins-v5-latin-300.eot");
@@ -36,7 +35,6 @@ list-type-ulli,
 }
 /* poppins-300italic - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: italic;
   font-weight: 300;
   src: url("../fonts/poppins/poppins-v5-latin-300italic.eot");
@@ -52,7 +50,6 @@ list-type-ulli,
 }
 /* poppins-regular - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/poppins/poppins-v5-latin-regular.eot");
@@ -68,7 +65,6 @@ list-type-ulli,
 }
 /* poppins-italic - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: italic;
   font-weight: 400;
   src: url("../fonts/poppins/poppins-v5-latin-italic.eot");
@@ -84,7 +80,6 @@ list-type-ulli,
 }
 /* poppins-500 - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   src: url("../fonts/poppins/poppins-v5-latin-500.eot");
@@ -100,7 +95,6 @@ list-type-ulli,
 }
 /* poppins-500italic - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: italic;
   font-weight: 500;
   src: url("../fonts/poppins/poppins-v5-latin-500italic.eot");
@@ -116,7 +110,6 @@ list-type-ulli,
 }
 /* poppins-600 - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   src: url("../fonts/poppins/poppins-v5-latin-600.eot");
@@ -132,7 +125,6 @@ list-type-ulli,
 }
 /* poppins-700 - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   src: url("../fonts/poppins/poppins-v5-latin-700.eot");
@@ -148,7 +140,6 @@ list-type-ulli,
 }
 /* poppins-700italic - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: italic;
   font-weight: 700;
   src: url("../fonts/poppins/poppins-v5-latin-700italic.eot");
@@ -164,7 +155,6 @@ list-type-ulli,
 }
 /* poppins-800 - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 800;
   src: url("../fonts/poppins/poppins-v5-latin-800.eot");
@@ -180,7 +170,6 @@ list-type-ulli,
 }
 /* poppins-800italic - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: italic;
   font-weight: 800;
   src: url("../fonts/poppins/poppins-v5-latin-800italic.eot");
@@ -196,7 +185,6 @@ list-type-ulli,
 }
 /* poppins-900 - latin */
 @font-face {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 900;
   src: url("../fonts/poppins/poppins-v5-latin-900.eot");
@@ -290,13 +278,7 @@ h2 {
   padding: 0;
   font-weight: bold;
   color: #222;
-  font-family: Poppins;
   font-size: 36px;
-}
-
-.main {
-  background: #f8f8f8;
-  padding: 150px 0;
 }
 
 .clear {
@@ -309,7 +291,6 @@ body {
   color: #222;
   background: #f8f8f8;
   font-weight: 400;
-  font-family: Poppins;
 }
 
 .container {
@@ -371,6 +352,7 @@ body {
 
 .signup-content {
   padding: 75px 0;
+  justify-content: space-evenly;
 }
 
 .signup-form,
@@ -387,6 +369,9 @@ body {
 
 .form-title {
   margin-bottom: 33px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .signup-image {
@@ -426,6 +411,10 @@ figure {
   color: #222;
   display: block;
   text-align: center;
+  text-decoration: underline;
+  &:hover {
+    color: #6dabe4;
+  }
 }
 
 .term-service {
@@ -458,7 +447,6 @@ input {
   border: none;
   border-bottom: 1px solid #999;
   padding: 6px 30px;
-  font-family: Poppins;
   box-sizing: border-box;
 }
 input::-webkit-input-placeholder {
@@ -539,7 +527,6 @@ input[type="checkbox"]:not(old):checked + label > span:before {
   font-size: 11px;
   line-height: 1.2;
   text-align: center;
-  font-family: "Material-Design-Iconic-Font";
   font-weight: bold;
 }
 
@@ -584,7 +571,6 @@ label.valid {
   background: transparent;
 }
 label.valid:after {
-  font-family: "Material-Design-Iconic-Font";
   content: "\f269";
   width: 100%;
   height: 100%;
