@@ -11,10 +11,62 @@
     />
     <title>Members Only</title>
   </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Members Only</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <% if (typeof user !== 'undefined' && user) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Welcome, <%= user.fullName %></a>
+              </li>
+            <% } else { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-
-    <a href="/signup">
-    <button>SignUp</button></link>
+    <div class="container mt-5">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <div class="jumbotron">
+          <h1 class="display-4">Welcome back, <%= user.fullName %>!</h1>
+          <p class="lead">Ready to join the conversation? Head over to the chat now!</p>
+          <a class="btn btn-primary btn-lg" href="/chat" role="button">Go to Chat</a>
+        </div>
+      <% } else { %>
+        <div class="jumbotron">
+          <h1 class="display-4">Welcome to Members Only!</h1>
+          <p class="lead">Join our community to access exclusive content and chat with other members.</p>
+          <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+          <a class="btn btn-secondary btn-lg" href="/signup" role="button">Sign Up</a>
+        </div>
+      <% } %>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
