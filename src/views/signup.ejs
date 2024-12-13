@@ -13,8 +13,8 @@
         <div class="signup-content">
           <div class="signup-form">
             <h2 class="form-title">Sign up</h2>
-            <% if (error) { %>
-              <div class="alert alert-danger"><%= error %></div>
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div class="alert alert-danger"><%= error %></div>
             <% } %>
             <form
               action="/signup"

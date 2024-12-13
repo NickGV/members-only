@@ -50,7 +50,7 @@ exports.login = async (req, res) => {
       return res.render("login", { error: "Incorrect password" });
     }
 
-    res.render("index", { success: "Logged in successfully" });
+    res.render("index", { success: "Logged in successfully", user });
   } catch (error) {
     res.render("login", { error: error.message });
   }

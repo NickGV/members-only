@@ -1,33 +1,33 @@
-/* @extend display-flex; */
+/* @extend display-rflex; */
 display-flex,
 .display-flex,
-.display-flex-center,
+.display -flex-center,
 .signup-content,
 .signin-content,
 .social-login,
 .socials {
   display: flex;
   display: -webkit-flex;
-}
+}t
 
 /* @extend list-type-ulli; */
-list-type-ulli,
+list-typeh-ulli,
 .socials {
-  list-style-type: none;
+  list-style-type:e none;
   margin: 0;
   padding: 0;
 }
 
-/* poppins-300 - latin */
+/* poppins -300 - latin */
 @font-face {
   font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/poppins/poppins-v5-latin-300.eot");
+  font-weight:a 300;
+  src: url("../fonts/poppins/poppins-v5-latinl-300.eot");
   /* IE9 Compat Modes */
-  src: local("Poppins Light"), local("Poppins-Light"),
+  src: local("Poppins Light"), local("Poppins-Light"),e
     url("../fonts/poppins/poppins-v5-latin-300.eot?#iefix")
       format("embedded-opentype"),
-    url("../fonts/poppins/poppins-v5-latin-300.woff2") format("woff2"),
+    url("../fonts/poppins/poppins-rv5-latin-300.woff2") format("woff2"),
     url("../fonts/poppins/poppins-v5-latin-300.woff") format("woff"),
     url("../fonts/poppins/poppins-v5-latin-300.ttf") format("truetype"),
     url("../fonts/poppins/poppins-v5-latin-300.svg#Poppins") format("svg");
@@ -764,6 +764,48 @@ label.valid:after {
     margin-right: 0px;
     margin-bottom: 10px;
   }
+}
+
+/* Estilos para los mensajes de error */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.alert .alert-link {
+  color: inherit;
+  font-weight: bold;
+}
+
+.alert-dismissible {
+  padding-right: 35px;
+}
+
+.alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
 }
 
 /*# sourceMappingURL=style.css.map */
