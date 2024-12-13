@@ -1,46 +1,57 @@
-const User = require("../models");
+const { User } = require("../models");
 const bcrypt = require("bcrypt");
 
 exports.register = async (req, res) => {
   const { fullName, email, password, re_pass } = req.body;
 
+  if (!fullName || !email || !password || !re_pass) {
+    return res.render("signup", { error: "All fields are required" });
+  }
+
   if (password !== re_pass) {
-    return res.status(400).json({ error: "Passwords do not match" });
+    return res.render("signup", { error: "Passwords do not match" });
   }
 
   try {
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
-      throw new Error("User already exists");
+      return res.render("signup", { error: "User already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
+    await User.create({
       fullName,
       email,
       password: hashedPassword,
       membershipStatus: false,
     });
 
-    res.direct("/login");
+    res.render("login", { success: "Registration successful. Please log in." });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.render("signup", { error: error.message });
   }
 };
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.render("login", { error: "All fields are required" });
+  }
+
   try {
-    const user = user.findOne({ where: { email } });
+    const user = await User.findOne({ where: { email } });
     if (!user) {
-      throw new Error("User not found");
+      return res.render("login", { error: "User not found" });
     }
-    const valid = await user.validPassword(password);
+
+    const valid = await bcrypt.compare(password, user.password);
     if (!valid) {
-      throw new Error("Incorrect password");
+      return res.render("login", { error: "Incorrect password" });
     }
-    res.json({ message: "Logged in" });
+
+    res.render("index", { success: "Logged in successfully" });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.render("login", { error: error.message });
   }
 };
