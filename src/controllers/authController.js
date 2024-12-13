@@ -50,8 +50,22 @@ exports.login = async (req, res) => {
       return res.render("login", { error: "Incorrect password" });
     }
 
-    res.render("index", { success: "Logged in successfully", user });
+    req.login(user, (err) => {
+      if (err) {
+        return res.render("login", { error: err.message });
+      }
+      return res.redirect("/");
+    });
   } catch (error) {
     res.render("login", { error: error.message });
   }
+};
+
+exports.logout = (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.render("index", { error: err.message });
+    }
+    res.redirect("/login");
+  });
 };
