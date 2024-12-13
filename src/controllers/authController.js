@@ -4,29 +4,28 @@ const bcrypt = require("bcrypt");
 exports.register = async (req, res) => {
   const { fullName, email, password, re_pass } = req.body;
 
-  console.log(req.body);
-  // if (password !== re_pass) {
-  //   return res.status(400).json({ error: "Passwords do not match" });
-  // }
+  if (password !== re_pass) {
+    return res.status(400).json({ error: "Passwords do not match" });
+  }
 
-  // try {
-  //   const existingUser = await User.findOne({ where: { email } });
-  //   if (existingUser) {
-  //     throw new Error("User already exists");
-  //   }
+  try {
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      throw new Error("User already exists");
+    }
 
-  //   const hashedPassword = await bcrypt.hash(password, 10);
-  //   const user = await User.create({
-  //     fullName,
-  //     email,
-  //     password: hashedPassword,
-  //     membershipStatus: false,
-  //   });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await User.create({
+      fullName,
+      email,
+      password: hashedPassword,
+      membershipStatus: false,
+    });
 
-  //   res.direct("/login");
-  // } catch (error) {
-  //   res.status(400).json({ error: error.message });
-  // }
+    res.direct("/login");
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 exports.login = async (req, res) => {
