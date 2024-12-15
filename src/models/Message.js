@@ -22,6 +22,7 @@ const Message = sequelize.define(
     timestamp: {
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
   },
   {
