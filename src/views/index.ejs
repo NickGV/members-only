@@ -32,7 +32,7 @@
               <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/chat">Chat</a>
+              <a class="nav-link" href="/messages">Chat</a>
             </li>
             <% if (typeof user !== 'undefined' && user) { %>
               <li class="nav-item">
@@ -56,7 +56,7 @@
         <div class="jumbotron">
           <h1 class="display-4">Welcome back, <%= user.fullName %>!</h1>
           <p class="lead">Ready to join the conversation? Head over to the chat now!</p>
-          <a class="btn btn-primary btn-lg" href="/chat" role="button">Go to Chat</a>
+          <a class="btn btn-primary btn-lg" href="/messages" role="button">Go to Chat</a>
         </div>
       <% } else { %>
         <div class="jumbotron">

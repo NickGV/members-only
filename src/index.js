@@ -1,15 +1,18 @@
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
-const passport = require("./config/passport"); 
+const passport = require("./config/passport");
 const { sequelize } = require("./models");
 const authRoutes = require("./routes/authRoutes");
 const indexRoutes = require("./routes/index");
+const messageRoutes = require("./routes/messageRoutes");
+const methodOverride = require("method-override");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -34,6 +37,7 @@ sequelize
 
 app.use("/", indexRoutes);
 app.use("/", authRoutes);
+app.use("/", messageRoutes);
 
 const PORT = process.env.PORT || 3000;
 
